@@ -60,4 +60,4 @@ pod ‘RippleAnimation’, ‘0.1.1’
 To Install RippleAnimation with Carthage, write `github "mnat44/RippleAnimation"` in your Cartfile and run `cart update`.
 
 ## License
-KeyboardObserver.swift is released under the MIT license. Go read the LICENSE file for more information.
+RippleAnimation is released under the MIT license. Go read the LICENSE file for more information.
