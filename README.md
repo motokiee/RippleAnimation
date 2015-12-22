@@ -43,7 +43,21 @@ More details is written in Demo project.
 - Xcode 7.0 - Swift2.0
 
 ### Installation
-To Install RippleAnimation, write `github "mnat44/RippleAnimation"` in your Cartfile.
+
+#### CocoaPods
+
+To install RippleAnimation with CocoaPods, add the following lines in your Podfile and run `pod install`.
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+usee_frameworks!
+pod ‘RippleAnimation’, ‘0.1.1’
+```
+
+#### Carthage
+To Install RippleAnimation with Carthage, write `github "mnat44/RippleAnimation"` in your Cartfile and run `cart update`.
 
 ## License
 KeyboardObserver.swift is released under the MIT license. Go read the LICENSE file for more information.
