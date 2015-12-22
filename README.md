@@ -4,9 +4,10 @@ Google Material Design Ripple Effects for Swift project. This project is inspire
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Features
+<img src="https://raw.github.com/wiki/mnat44/RippleAnimation/images/ripple-animation-sample.gif" width="207" height="368">
+
 - Easy way to use Ripple Effects is call `rippleAnimate` method for your `UIView` instances.
 - `rippleAnimate` is `UIView` extension.
-
 
 
 ## Usage
