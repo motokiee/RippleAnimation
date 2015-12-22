@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RippleAnimation"
-  s.version      = "0.0.2"
+  s.version      = "0.1.1"
   s.summary      = "Inspired from Material Design Ripple Effects for iOS"
   s.description  = <<-DESC
                    - Easy way to use Ripple Effects is call `rippleAnimate` method for your UIView instances.
