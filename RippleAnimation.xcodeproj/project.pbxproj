@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		363076321C297DEE00D56CAD /* RippleAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 363076311C297DEE00D56CAD /* RippleAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		363076821C29846D00D56CAD /* RippleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363076811C29846D00D56CAD /* RippleAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3630762E1C297DEE00D56CAD /* RippleAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RippleAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		363076311C297DEE00D56CAD /* RippleAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RippleAnimation.h; sourceTree = "<group>"; };
 		363076331C297DEE00D56CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		363076811C29846D00D56CAD /* RippleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				363076311C297DEE00D56CAD /* RippleAnimation.h */,
+				363076811C29846D00D56CAD /* RippleAnimation.swift */,
 				363076331C297DEE00D56CAD /* Info.plist */,
 			);
 			path = RippleAnimation;
@@ -130,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				363076821C29846D00D56CAD /* RippleAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +232,7 @@
 		363076371C297DEE00D56CAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -238,12 +243,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearable44.RippleAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		363076381C297DEE00D56CAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
