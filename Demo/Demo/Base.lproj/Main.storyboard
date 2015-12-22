@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="biE-RU-eII">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--Ripple Effect Demo-->
+        <scene sceneID="utm-1P-Z3J">
+            <objects>
+                <viewController id="Hm1-rn-CQW" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1fF-bf-pRz"/>
+                        <viewControllerLayoutGuide type="bottom" id="tLn-Qy-dos"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aD0-w7-Lx9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="frQ-Sn-kvk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="cEs-Aa-wW3" customClass="OriginalCell" customModule="Demo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cEs-Aa-wW3" id="pUT-wQ-CrL">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hm1-rn-CQW" id="iAC-Ik-wrt"/>
+                                    <outlet property="delegate" destination="Hm1-rn-CQW" id="BPu-F9-GIX"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-1D-pkc">
+                                <rect key="frame" x="275" y="530" width="50" height="50"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UTk-L2-GTZ"/>
+                                    <constraint firstAttribute="width" constant="50" id="VDG-OD-h3r"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="add_button"/>
+                                <connections>
+                                    <action selector="tapped:" destination="Hm1-rn-CQW" eventType="touchUpInside" id="NgS-nV-pSi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="frQ-Sn-kvk" secondAttribute="trailing" id="2Gt-6Q-dZq"/>
+                            <constraint firstItem="frQ-Sn-kvk" firstAttribute="leading" secondItem="aD0-w7-Lx9" secondAttribute="leading" id="MfK-Md-hv2"/>
+                            <constraint firstItem="Ptf-1D-pkc" firstAttribute="centerX" secondItem="aD0-w7-Lx9" secondAttribute="centerX" id="UGH-wX-Vdu"/>
+                            <constraint firstItem="frQ-Sn-kvk" firstAttribute="top" secondItem="aD0-w7-Lx9" secondAttribute="top" id="YuP-yK-WI7"/>
+                            <constraint firstItem="tLn-Qy-dos" firstAttribute="top" secondItem="frQ-Sn-kvk" secondAttribute="bottom" id="nZb-Vq-oEB"/>
+                            <constraint firstItem="tLn-Qy-dos" firstAttribute="top" secondItem="Ptf-1D-pkc" secondAttribute="bottom" constant="20" id="stg-cB-Q9L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ripple Effect Demo" id="le4-Yq-xjv"/>
+                    <connections>
+                        <outlet property="tableView" destination="frQ-Sn-kvk" id="ibN-yt-V4W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTm-NF-6bi" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="350"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="x25-pq-LGd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="biE-RU-eII" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="o8T-K6-DmA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hm1-rn-CQW" kind="relationship" relationship="rootViewController" id="5N0-Xy-Lxb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="goM-b3-Z8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="238" y="350"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add_button" width="50" height="50"/>
+    </resources>
+</document>
