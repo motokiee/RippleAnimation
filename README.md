@@ -52,7 +52,7 @@ To install RippleAnimation with CocoaPods, add the following lines in your Podfi
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
-usee_frameworks!
+use_frameworks!
 pod ‘RippleAnimation’, ‘0.1.1’
 ```
 
