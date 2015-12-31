@@ -57,7 +57,7 @@ pod ‘RippleAnimation’, ‘0.1.1’
 ```
 
 #### Carthage
-To Install RippleAnimation with Carthage, write `github "mnat44/RippleAnimation"` in your Cartfile and run `cart update`.
+To Install RippleAnimation with Carthage, write `github "mnat44/RippleAnimation"` in your Cartfile and run `carthage update`.
 
 ## License
 RippleAnimation is released under the MIT license. Go read the LICENSE file for more information.
