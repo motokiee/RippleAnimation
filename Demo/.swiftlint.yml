@@ -1,0 +1,16 @@
+disabled_rules:
+  - line_length
+  - type_body_length
+  - variable_name
+included:
+  - Demo
+  - ../RippleAnimation
+excluded:
+  - Carthage
+file_length:
+  - 600
+function_body_length:
+  - 100
+variable_name_min_length:
+  - 3
+  - 2

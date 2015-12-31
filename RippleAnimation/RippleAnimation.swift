@@ -17,19 +17,19 @@ public extension UIView {
 
     /**
      Adds a ripple animation to UIView instance
-     
+
      - parameter color:                The color of ripple view.
      - parameter completionHandler:    A closure to be executed when the animation sequence ends
      */
     public func rippleAnimate(color color: UIColor, completionHandler: (() -> Void)?) {
-        let startRect = CGRectMake(0, 0, self.frame.width, self.frame.height)
+        let startRect = CGRect(x:0, y:0, width:self.frame.width, height:self.frame.height)
         self.rippleAnimate(color: color, scale: DefaultScale, startRect: startRect, scaleAnimateDuration: DefaultScalingAnimateDuration, fadeAnimateDuration: DefaultAlphaAnimateDuration, completionHandler: completionHandler)
     }
 
 
     /**
      Adds a ripple effects to UIView instance with detail parameters
-     
+
      - parameter color:                The color of ripple view.
      - parameter scale:                ripple view scale fuctor
      - parameter startRect:            The initial frame rectangle of the ripple view to be animated
@@ -38,30 +38,30 @@ public extension UIView {
      - parameter completionHandler:    A closure to be executed when the animation sequence ends
      */
     public func rippleAnimate(color color: UIColor, scale: CGFloat, startRect: CGRect, scaleAnimateDuration: NSTimeInterval, fadeAnimateDuration: NSTimeInterval, completionHandler: (() -> Void)?) {
-        
+
         let rippleView = RippleView(frame: startRect, backgroundColor: color)
         self.addSubview(rippleView)
-        
+
         let scaleAnimation = { () -> Void in
             let widthRatio = self.frame.width / rippleView.frame.width
             rippleView.transform = CGAffineTransformMakeScale(widthRatio * scale, widthRatio * scale)
         }
-        
+
         let fadeAnimation = { rippleView.alpha = 0.0 }
-        
+
         // start scale animation
         UIView.animateWithDuration(scaleAnimateDuration, animations: scaleAnimation) { (completion) -> Void in
             if completion {
-                
+
                 // start fade animation
                 UIView.animateWithDuration(fadeAnimateDuration, animations: fadeAnimation) { (completion) -> Void in
                     if completion {
                         rippleView.removeFromSuperview()
-                        
+
                         if let completionHandler = completionHandler {
                             completionHandler()
                         }
-                        
+
                     }
                 }
             }
@@ -86,7 +86,7 @@ private final class RippleView: UIView {
         let maskPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: CGRectGetWidth(self.bounds) / 2)
         let maskLayer = CAShapeLayer()
         maskLayer.path = maskPath.CGPath
-        self.layer.mask = maskLayer;
+        self.layer.mask = maskLayer
     }
-    
+
 }
