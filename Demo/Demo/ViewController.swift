@@ -12,12 +12,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     // MARK: properties
     let colors = [
-        (UIColor.alizarin(), false),
-        (UIColor.carrot(), true),
-        (UIColor.sunflower(), false),
-        (UIColor.turquoize(), true),
-        (UIColor.river(), false),
-        (UIColor.amethyst(), true) ]
+        OriginalCell.CellInfo(color: UIColor.alizarin(), clipsToBouds: false),
+        OriginalCell.CellInfo(color: UIColor.carrot(), clipsToBouds: true),
+        OriginalCell.CellInfo(color: UIColor.sunflower(), clipsToBouds: false),
+        OriginalCell.CellInfo(color: UIColor.turquoize(), clipsToBouds: true),
+        OriginalCell.CellInfo(color: UIColor.river(), clipsToBouds: false),
+        OriginalCell.CellInfo(color: UIColor.amethyst(), clipsToBouds: true) ]
 
     @IBOutlet weak var tableView: UITableView!
 

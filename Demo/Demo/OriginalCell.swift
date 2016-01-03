@@ -8,22 +8,20 @@
 
 import UIKit
 
-import UIKit
-
 // RippleAnimation example for UITableViewCell
 class OriginalCell: UITableViewCell {
 
     var rippleColor = UIColor.midnight()
 
-    typealias CellInfo = (UIColor, Bool)
+    typealias CellInfo = (color: UIColor, clipsToBouds: Bool)
     func configure(info: CellInfo) {
 
         selectionStyle = .None
-        rippleColor = info.0
+        rippleColor = info.color
 
         // !!!: if you would like to use ripple effect to outside of the view, you should set `clipToBouds` prperty to `false`.
         // cell.clipsToBounds = false
-        clipsToBounds = info.1
+        clipsToBounds = info.clipsToBouds
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
