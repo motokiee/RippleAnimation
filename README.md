@@ -6,7 +6,8 @@ Google Material Design Ripple Effects for Swift project. This project is inspire
 ## Features
 <img src="https://raw.github.com/wiki/mnat44/RippleAnimation/images/ripple-animation-sample.gif" width="207" height="368">
 
-- Easy way to use Ripple Effects is call `rippleAnimate` method for your `UIView` instances.
+- Easy way to use Ripple Effects.
+- Call `rippleAnimate` to your `UIView` instances.
 - `rippleAnimate` is `UIView` extension.
 
 
