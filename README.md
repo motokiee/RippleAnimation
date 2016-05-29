@@ -33,6 +33,7 @@ And now, you can call `rippleAnimate` with `UIView.RippleConfiguration` instance
 You can use `rippleAnimate` with more detail parameters with `RippleConfiguration` just like below.
 
 ```
+@IBAction func pressed(sender: UIButton) {
     var config = UIView.RippleConfiguration(color: UIColor.alizarin())
     config.clipsToBounds = true
     config.scaleAnimateDuration = 0.3
@@ -40,7 +41,7 @@ You can use `rippleAnimate` with more detail parameters with `RippleConfiguratio
     sender.rippleAnimate(config, completionHandler: {
         print("ripple!!")
     })
-
+}
 ```
 
 More details is written in Demo project.
