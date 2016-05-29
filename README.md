@@ -7,7 +7,7 @@ Google Material Design Ripple Effects for Swift project. This project is inspire
 <img src="https://raw.github.com/wiki/mnat44/RippleAnimation/images/ripple-animation-sample.gif" width="207" height="368">
 
 - Easy way to use Ripple Effects.
-- Call `rippleAnimate` to your `UIView` instances.
+- Call `rippleAnimate` to your `UIView` instances with RippleConfiguration.
 - `rippleAnimate` is `UIView` extension.
 
 
@@ -19,20 +19,28 @@ First, you should import `RippleAnimation` module.
 import RippleAnimation
 ```
 
-And now, you can call `rippleAnimate`.
+And now, you can call `rippleAnimate` with `UIView.RippleConfiguration` instance.
 
 ```
 @IBAction func pressed(sender: UIButton) {
-    sender.rippleAnimate(color: UIColor.redColor()) { print("ripple!!") }
+    let config = UIView.RippleConfiguration(color: UIColor.alizarin())
+    sender.rippleAnimate(config, completionHandler: {
+        print("ripple!!")
+    })
 }
 ```
 
-You can use `rippleAnimate` with more detail parameters just like below.
+You can use `rippleAnimate` with more detail parameters with `RippleConfiguration` just like below.
 
 ```
-self.contentView.rippleAnimate(color: rippleColor, scale: 10, startRect: startRect, scaleAnimateDuration: 1.0, fadeAnimateDuration: 0.5) { () -> Void in
-    print("ripple!!")
-}
+    var config = UIView.RippleConfiguration(color: UIColor.alizarin())
+    config.clipsToBounds = true
+    config.scaleAnimateDuration = 0.3
+    config.fadeAnimateDuration = 0.1
+    sender.rippleAnimate(config, completionHandler: {
+        print("ripple!!")
+    })
+
 ```
 
 More details is written in Demo project.
