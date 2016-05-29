@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
 
     // MARK: properties
     let colors = [
@@ -30,6 +30,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: Action
+    @IBAction func tapped(sender: UIButton) {
+        // !!!: example for ripple animation for UIView
+        let config = UIView.RippleConfiguration(color: UIColor.alizarin())
+        sender.rippleAnimate(config, completionHandler: {
+            print("ripple!!")
+        })
+    }
+
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,13 +69,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
-    }
-
-
-    // MARK: Action
-    @IBAction func tapped(sender: UIButton) {
-        // !!!: example for ripple animation for UIView
-        sender.rippleAnimate(color: UIColor.alizarin()) { print("ripple!!") }
     }
 
 }
