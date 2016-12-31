@@ -24,7 +24,7 @@ And now, you can call `rippleAnimate` with `UIView.RippleConfiguration` instance
 ```
 @IBAction func pressed(sender: UIButton) {
     let config = UIView.RippleConfiguration(color: UIColor.alizarin())
-    sender.rippleAnimate(config, completionHandler: {
+    sender.rippleAnimate(with: config, completionHandler: {
         print("ripple!!")
     })
 }
@@ -38,7 +38,7 @@ You can use `rippleAnimate` with more detail parameters with `RippleConfiguratio
     config.clipsToBounds = true
     config.scaleAnimateDuration = 0.3
     config.fadeAnimateDuration = 0.1
-    sender.rippleAnimate(config, completionHandler: {
+    sender.rippleAnimate(with: config, completionHandler: {
         print("ripple!!")
     })
 }
@@ -49,8 +49,8 @@ More details is written in Demo project.
 
 ## Runtime Requirements
 
-- iOS8.4 or later
-- Xcode 7.0 - Swift2.0
+- iOS9.3 or later
+- Xcode8 - Swift3
 
 ### Installation
 
@@ -61,9 +61,9 @@ To install RippleAnimation with CocoaPods, add the following lines in your Podfi
 ```
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
-pod ‘RippleAnimation’, ‘0.1.1’
+pod ‘RippleAnimation’, ‘0.3’
 ```
 
 #### Carthage
