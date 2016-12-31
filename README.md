@@ -15,13 +15,13 @@ Google Material Design Ripple Effects for Swift project. This project is inspire
 
 First, you should import `RippleAnimation` module.
 
-```
+```swift
 import RippleAnimation
 ```
 
 And now, you can call `rippleAnimate` with `UIView.RippleConfiguration` instance.
 
-```
+```swift
 @IBAction func pressed(sender: UIButton) {
     let config = UIView.RippleConfiguration(color: UIColor.alizarin())
     sender.rippleAnimate(with: config, completionHandler: {
@@ -32,7 +32,7 @@ And now, you can call `rippleAnimate` with `UIView.RippleConfiguration` instance
 
 You can use `rippleAnimate` with more detail parameters with `RippleConfiguration` just like below.
 
-```
+```swift
 @IBAction func pressed(sender: UIButton) {
     var config = UIView.RippleConfiguration(color: UIColor.alizarin())
     config.clipsToBounds = true
@@ -58,7 +58,7 @@ More details is written in Demo project.
 
 To install RippleAnimation with CocoaPods, add the following lines in your Podfile and run `pod install`.
 
-```
+```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '9.0'
