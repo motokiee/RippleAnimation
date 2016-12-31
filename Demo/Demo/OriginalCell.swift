@@ -15,16 +15,16 @@ class OriginalCell: UITableViewCell {
 
     typealias CellInfo = (color: UIColor, clipsToBouds: Bool)
 
-    func configure(info: CellInfo) {
+    func configure(_ info: CellInfo) {
 
         configuration = UIView.RippleConfiguration(color: info.color)
         configuration.clipsToBounds = info.clipsToBouds
 
         clipsToBounds = configuration.clipsToBounds
-        selectionStyle = .None
+        selectionStyle = .none
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
 
         super.setSelected(selected, animated: animated)
 
@@ -35,7 +35,7 @@ class OriginalCell: UITableViewCell {
             let startRect = CGRect(x: self.frame.width/2 - rippleStartSize.width/2, y: self.frame.height/2 - rippleStartSize.height/2, width: rippleStartSize.width, height: rippleStartSize.height)
             configuration.startRect = startRect
 
-            contentView.rippleAnimate(configuration, completionHandler: { print("ripple!!") })
+            contentView.rippleAnimate(with: configuration, completionHandler: { print("ripple!!") })
         }
     }
 }

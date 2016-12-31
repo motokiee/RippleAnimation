@@ -31,10 +31,10 @@ class ViewController: UIViewController {
     }
 
     // MARK: Action
-    @IBAction func tapped(sender: UIButton) {
+    @IBAction func tapped(_ sender: UIButton) {
         // !!!: example for ripple animation for UIView
         let config = UIView.RippleConfiguration(color: UIColor.alizarin())
-        sender.rippleAnimate(config, completionHandler: {
+        sender.rippleAnimate(with: config, completionHandler: {
             print("ripple!!")
         })
     }
@@ -44,17 +44,17 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     // MARK: UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return colors.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? OriginalCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? OriginalCell else {
             fatalError()
         }
         cell.configure(colors[indexPath.row])
@@ -63,11 +63,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 
     // MARK: UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 

@@ -8,15 +8,15 @@
 
 import UIKit
 
-private let DefaultScalingAnimateDuration: NSTimeInterval = 1.0
-private let DefaultAlphaAnimateDuration: NSTimeInterval   = 0.2
+private let DefaultScalingAnimateDuration: TimeInterval = 1.0
+private let DefaultAlphaAnimateDuration: TimeInterval   = 0.2
 private let DefaultScale: CGFloat = 100
 
 // MARK: - UIView - Ripple Animation Extension
 public extension UIView {
 
-    private var rippleDefaultStartRect: CGRect {
-        return CGRect(x:0, y:0, width:self.frame.width, height:self.frame.height)
+    fileprivate var rippleDefaultStartRect: CGRect {
+        return CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
 
     public struct RippleConfiguration {
@@ -33,39 +33,39 @@ public extension UIView {
         }
     }
 
-    public func rippleAnimate(config: UIView.RippleConfiguration, completionHandler: (() -> Void)?) {
+    public func rippleAnimate(with config: UIView.RippleConfiguration, completionHandler: (() -> Void)?) {
 
         clipsToBounds = config.clipsToBounds
         let startRect = config.startRect ?? rippleDefaultStartRect
 
-        self.rippleAnimate(color: config.color, scale: DefaultScale, startRect: startRect, scaleAnimateDuration: config.scaleAnimateDuration, fadeAnimateDuration: config.fadeAnimateDuration, completionHandler: completionHandler)
+        rippleAnimate(with: config.color, scale: DefaultScale, startRect: startRect, scaleAnimateDuration: config.scaleAnimateDuration, fadeAnimateDuration: config.fadeAnimateDuration, completionHandler: completionHandler)
 
     }
 
-    private func rippleAnimate(color color: UIColor, scale: CGFloat, startRect: CGRect, scaleAnimateDuration: NSTimeInterval, fadeAnimateDuration: NSTimeInterval, completionHandler: (() -> Void)?) {
+    fileprivate func rippleAnimate(with color: UIColor, scale: CGFloat, startRect: CGRect, scaleAnimateDuration: TimeInterval, fadeAnimateDuration: TimeInterval, completionHandler: (() -> Void)?) {
 
         let rippleView = RippleView(frame: startRect, backgroundColor: color)
-        self.addSubview(rippleView)
+        addSubview(rippleView)
 
         let scaleAnimation = {
             let widthRatio = self.frame.width / rippleView.frame.width
-            rippleView.transform = CGAffineTransformMakeScale(widthRatio * scale, widthRatio * scale)
+            rippleView.transform = CGAffineTransform(scaleX: widthRatio * scale, y: widthRatio * scale)
         }
 
         let fadeAnimation = { rippleView.alpha = 0.0 }
 
         // start scale animation
-        UIView.animateWithDuration(scaleAnimateDuration, animations: scaleAnimation) { completion in
+        UIView.animate(withDuration: scaleAnimateDuration, animations: scaleAnimation, completion: { completion in
 
             guard completion else { return }
 
             // start fade animation
-            UIView.animateWithDuration(fadeAnimateDuration, animations: fadeAnimation) { completion in
+            UIView.animate(withDuration: fadeAnimateDuration, animations: fadeAnimation, completion: { completion in
                 guard completion else { return }
                 rippleView.removeFromSuperview()
                 completionHandler?()
-            }
-        }
+            }) 
+        }) 
     }
 
 }
@@ -82,11 +82,11 @@ private final class RippleView: UIView {
         super.init(coder: aDecoder)
     }
 
-    override func drawRect(rect: CGRect) {
-        let maskPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: CGRectGetWidth(self.bounds) / 2)
+    override func draw(_ rect: CGRect) {
+        let maskPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.bounds.width / 2)
         let maskLayer = CAShapeLayer()
-        maskLayer.path = maskPath.CGPath
-        self.layer.mask = maskLayer
+        maskLayer.path = maskPath.cgPath
+        layer.mask = maskLayer
     }
 
 }
