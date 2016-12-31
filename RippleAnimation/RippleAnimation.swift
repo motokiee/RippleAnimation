@@ -42,7 +42,8 @@ public extension UIView {
 
     }
 
-    fileprivate func rippleAnimate(with color: UIColor, scale: CGFloat, startRect: CGRect, scaleAnimateDuration: TimeInterval, fadeAnimateDuration: TimeInterval, completionHandler: (() -> Void)?) {
+    // swiftlint:disable function_parameter_count
+   private func rippleAnimate(with color: UIColor, scale: CGFloat, startRect: CGRect, scaleAnimateDuration: TimeInterval, fadeAnimateDuration: TimeInterval, completionHandler: (() -> Void)?) {
 
         let rippleView = RippleView(frame: startRect, backgroundColor: color)
         addSubview(rippleView)
@@ -64,10 +65,10 @@ public extension UIView {
                 guard completion else { return }
                 rippleView.removeFromSuperview()
                 completionHandler?()
-            }) 
-        }) 
+            })
+        })
     }
-
+    // swiftlint:enable function_parameter_count
 }
 
 /// Custom UIView for ripple effects
